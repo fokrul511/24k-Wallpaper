@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:http/http.dart';
 import 'package:wallpaper_apps/presentation/model/data.dart';
 import 'package:wallpaper_apps/presentation/screens/full_screen.dart';
+import 'package:wallpaper_apps/presentation/utils/snck_bar.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -80,7 +81,7 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
             InkWell(
               onTap: () {
-                _loagMorePage();
+                mySnkeBar(context,'Sorry Network error !',Colors.red);
                 print("hi");
               },
               child: Container(
@@ -129,11 +130,9 @@ class _HomeScreenState extends State<HomeScreen> {
       }
       setState(() {});
     }
-    // print(response);
-    // print(response.statusCode);
-    // print(response.body);
-  }
 
+  }
+/*
   _loagMorePage() async {
     setState(() {
       page = page + 1;
@@ -159,9 +158,6 @@ class _HomeScreenState extends State<HomeScreen> {
       }
       setState(() {});
     }
-  }
+  }*/
 }
 
-// NetworkImage(
-// wallpaperList[index].image.toString(),
-// ),

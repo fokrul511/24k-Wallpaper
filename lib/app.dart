@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:wallpaper_apps/presentation/screens/home_screen.dart';
+import 'package:wallpaper_apps/presentation/screens/splash_screen.dart';
 
 class WallPaper extends StatelessWidget {
   const WallPaper({super.key});
@@ -8,7 +8,7 @@ class WallPaper extends StatelessWidget {
   Widget build(BuildContext context) {
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: HomeScreen(),
+      home: SplasScreen(),
     );
   }
 }

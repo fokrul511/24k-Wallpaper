@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_cache_manager/flutter_cache_manager.dart';
 import 'package:flutter_wallpaper_manager/flutter_wallpaper_manager.dart';
+import 'package:wallpaper_apps/presentation/utils/snck_bar.dart';
 
 import '../widgets/full_image.dart';
 
@@ -42,12 +43,7 @@ class _FullScreenState extends State<FullScreen> {
 
   Future<void> homeScreen() async {
     try {
-      ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(
-          backgroundColor: Colors.green,
-          content: Text('Wallpaper Set Successfuly'),
-        ),
-      );
+      mySnkeBar(context,'Set HomeScreen Wallpaper',Colors.green);
       String url = widget.imageurl;
       int location = WallpaperManager
           .HOME_SCREEN; // or location = WallpaperManager.LOCK_SCREEN;
@@ -60,12 +56,7 @@ class _FullScreenState extends State<FullScreen> {
 
   Future<void> loockScreen() async {
     try {
-      ScaffoldMessenger.of(context).showSnackBar(
-        const SnackBar(
-          backgroundColor: Colors.green,
-          content: Text('Wallpaper Set Successfuly'),
-        ),
-      );
+      mySnkeBar(context,'Set Lock Screen Wallpaper',Colors.green);
       String url = widget.imageurl;
       int location = WallpaperManager
           .BOTH_SCREEN; // or location = WallpaperManager.LOCK_SCREEN;
