@@ -4,4 +4,3 @@ import 'package:wallpaper_apps/app.dart';
 void main() {
   runApp(const WallPaper());
 }
-

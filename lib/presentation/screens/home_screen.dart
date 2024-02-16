@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart';
 import 'package:wallpaper_apps/presentation/model/data.dart';
@@ -28,7 +29,8 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Wallpaper'),
+        centerTitle: true,
+        title: const Text('24k Wallpaper'),
       ),
       body: Visibility(
         visible: isLodingScreen == false,
@@ -39,7 +41,7 @@ class _HomeScreenState extends State<HomeScreen> {
               child: Container(
                 child: GridView.builder(
                   itemCount: wallpaperList.length,
-                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                     crossAxisCount: 3,
                     crossAxisSpacing: 2,
                     mainAxisSpacing: 2,
@@ -57,13 +59,18 @@ class _HomeScreenState extends State<HomeScreen> {
                         );
                       },
                       child: Container(
-                        decoration: BoxDecoration(
-                          color: Colors.blue,
-                          image: DecorationImage(
-                              image: NetworkImage(
-                                wallpaperList[index].image.toString(),
-                              ),
-                              fit: BoxFit.cover),
+
+                        child: CachedNetworkImage(
+                          imageUrl: wallpaperList[index].image.toString(),
+
+                          fit: BoxFit.cover,
+                          progressIndicatorBuilder:
+                              (context, url, downloadProgress) =>
+                                  Center(
+                                    child: CircularProgressIndicator(
+                                        value: downloadProgress.progress),
+                                  ),
+                          errorWidget: (context, url, error) => const Icon(Icons.error),
                         ),
                       ),
                     );
@@ -80,7 +87,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 height: 44,
                 width: double.infinity,
                 color: Colors.blue,
-                child: Center(
+                child: const Center(
                     child: Text(
                   'Load More',
                   style: TextStyle(
@@ -154,3 +161,7 @@ class _HomeScreenState extends State<HomeScreen> {
     }
   }
 }
+
+// NetworkImage(
+// wallpaperList[index].image.toString(),
+// ),
