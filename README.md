@@ -3,7 +3,7 @@
 A new Flutter project.
 
 ## Getting Started
-![image]([https://ibb.co/4W1dwTp](https://i.ibb.co/31Rz5Nc/Whats-App-Image-2024-02-17-at-11-31-49-AM.jpg)
+![image]()
 
 This project is a starting point for a Flutter application.
 
